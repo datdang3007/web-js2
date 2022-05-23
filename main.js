@@ -6,7 +6,7 @@ var B1 = []
 var C1  = [1]
 
 function descArray(array) {
-    for ( i = 0 ; i < array.length -1 ; i++ ) {
+    for ( i = 0 ; i < array.length - 1 ; i++ ) {
         for ( j = i+1 ; j < array.length ; j++ ) {
             if (array[i] < array[j]) {
                 var temp = array[i];
@@ -15,16 +15,12 @@ function descArray(array) {
             }
         }
     }
+    console.log(array)
 }
 
 descArray(A1)
-console.log(A1)
-
 descArray(B1)
-console.log(B1)
-
 descArray(C1)
-console.log(C1)
 
 // BT2: Định nghĩa function loại bỏ các phần tử trùng trong mảng
 console.log("Bài tập 2: loại bỏ các phần tử trùng trong mảng")
@@ -33,6 +29,7 @@ var A2 = [1, 1, 2]
 var B2 = []
 var C2  = [1, 2, 3, 4]
 
+// Cách 1:
 function removeDuplicate(array) {
     for ( i = 0 ; i < array.length -1 ; i++ ) {
         for ( j = i+1 ; j < array.length ; j++ ) {
@@ -41,16 +38,27 @@ function removeDuplicate(array) {
             }
         }
     }
+    console.log(array)
+}
+
+// Cách 2:
+function removeDuplicate2(array) {
+    var noDuplicateArray = []
+    for ( i = 0 ; i < array.length ; i++ ) {
+        if (!noDuplicateArray.includes(array[i])) {
+            noDuplicateArray.push(array[i])
+        }
+    }
+    console.log(array)
 }
 
 removeDuplicate(A2)
-console.log(A2)
-
 removeDuplicate(B2)
-console.log(B2)
-
 removeDuplicate(C2)
-console.log(C2)
+
+removeDuplicate2(A2)
+removeDuplicate2(B2)
+removeDuplicate2(C2)
 
 // BT3: Tìm số bé thứ nhì trong mảng - mảng luôn có lượng pt >= 2
 console.log("Bài tập 3: Tìm số bé thứ nhì trong mảng")
@@ -58,6 +66,7 @@ console.log("Bài tập 3: Tìm số bé thứ nhì trong mảng")
 var A3 = [1, 1, 2]
 var B3 = [1, 2, 3, 4, 5]
 var C3 = [1, 1, 1, 1, 1]
+var test = [2, 3, 1]
 
 // Cách 1:
 console.log("Cách 1: ")
@@ -114,7 +123,7 @@ function findSecondNumber2(array) {
     }
 
     var secondMin = max
-    for ( j = 1 ; j < array.length ; j++ ) {
+    for ( j = 0 ; j < array.length ; j++ ) {
         if (array[j] < secondMin && array[j] != min) {
             secondMin = array[j]
         }
